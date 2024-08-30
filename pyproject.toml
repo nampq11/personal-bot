@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "personal-bot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.4"
+pandas = "^2.2.2"
+loguru = "^0.7.2"
+llama-index = "^0.11.2"
+llama-index-llms-ollama = "^0.3.0"
+llama-index-embeddings-huggingface = "^0.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
