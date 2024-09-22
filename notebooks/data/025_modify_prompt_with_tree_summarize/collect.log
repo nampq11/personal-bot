@@ -1,0 +1,4 @@
+2024-09-21 17:20:41.407 | INFO     | __main__:<module>:6 - [COLLECT] 5240
+2024-09-21 17:20:42.042 | INFO     | __main__:<module>:4 - [COLLECT] len(input_data)=5240
+2024-09-21 17:20:44.623 | INFO     | __main__:<module>:19 - [COLLECT] len(documents)=5240
+2024-09-21 17:21:00.513 | INFO     | __main__:<module>:2 - [COLLECT] len(nodes)=20

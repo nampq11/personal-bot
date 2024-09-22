@@ -1,0 +1,74 @@
+{
+    "queries": {
+        "25246855-574a-4dcc-b727-34975cdd2dc4": "What are some other great places to visit in the Funk Zone?",
+        "ea6d6b25-3ceb-4465-b7b8-b7a8cb75c160": "What are some businesses known for having friendly staff?",
+        "62565394-e147-4210-8bcb-698c1a8aadf9": "What are some other tap rooms in Indianapolis that have a rotating selection of beers?",
+        "e75c3057-394b-49d6-83a7-9d21610dea8b": "What are some good places to get affordable dinner and lunch to-go?",
+        "dccff7cc-f232-4447-b2e7-c09846f66144": "What are some ice cream shops known for their delicious and unique flavors, friendly service, and generous sampling policy?",
+        "b70527f8-e839-48c3-afd1-1c0b45099090": "What are some other places that offer tastings and good food in Santa Barbara?",
+        "b1b9d99d-eaee-4acf-8b1c-cf72bf8e70a0": "What are some highly-rated brunch restaurants known for their creative and delicious food?",
+        "d77319f0-10cc-47f7-926a-5809f20af712": "What are some restaurants that offer excellent customer service and a good dining experience?",
+        "c16b5363-c4ff-4372-986c-39d978d34988": "What are some restaurants with excellent service and ambiance?",
+        "3b27540b-9033-4c6e-981d-ecb39a487e17": "What are some restaurants known for their large portions?",
+        "db834a98-d502-42b7-87cc-75a26a5001f7": "What are some places that serve delicious food?",
+        "23fa6737-95dd-47ec-b5fb-50ac7baa31e2": "What are some other places that offer snacks?",
+        "09c3c77a-a704-4c37-a7aa-e69d2ecae91e": "What are some places that offer brownie sundaes?"
+    },
+    "corpus": {
+        "37be3c44-96ee-4a76-b054-00461b69a63e": "What a great addition to the Funk Zone!  ",
+        "716413ae-6eb9-4ff6-8737-959217e4ccbc": "Staff are as friendly as it gets.",
+        "2c67c79e-0733-405a-b0f4-a4a3630a6047": "Love the tap room, but I can't seem to get the hours of business right.  My first visit was a kinda a let down.  I had heard that bier was the place to go for great beers in Indianapolis, but I only found 2 that I liked and only 1 was memorable.  However, bier rotates their taps weekly and does not seem to have any regular taps, I like this because it means that they are constantly challenging themselves to create a better beer.   The tap room is a lot of fun too with people constantly revolving around the taps to taste and find their favorite for the week and then relaxing and talking in the lounge area.  ",
+        "9fbd5ea5-ada6-4888-a4e8-3ca29b2beab8": "Great bar Happy Hour 4-7 every day. Wine & Drafts $3, $5 pizza, $4.50 apps. To-go Dinners and lunches are very reasonable and fast. ",
+        "6330dafa-19f0-45c9-9810-9297fef2a162": "This place was amazing! I only tried their ice cream I really wanted to try the hot chocolate but didn't get a chance :(. Well the ice cream was great! The first night I came here I got a brownie sundae all for myself, brownie on the bottom and three scoops of ice cream topped with whipped cream and nuts. I finished it all happily! I chose pumpkin cake flavor which was delicious and smooth. I also got pralines and cream that was better than other praline ice creams. The Tennessee fudge was vanilla with fudge swirled it was good not too special. \n\nThe next time I came I got nutter butter ice cream that was really good had cookie pieces in it! I got the hot fudge topping over it and that was a great combination. \n\nThe service was great the workers were really nice and patient with me haha indecisive! They would joke around with me and let me sample all I wanted. ",
+        "a8248e27-4017-4258-80f3-788eb11ed4f8": "Grab a bite, grab some tastings, life is good. Right next door to the Santa Barbara Wine Collective, in fact it actually shares the same tables.  We had a fabulous savory croissant.",
+        "553a4a2e-22ea-4b5b-a8d0-82a6b09079e3": "I love how creative everything was.\nI CANT STOP DAYDREAMING ABOUT THE FOOD. Hands down, best brunch experience of my life. I don't even like french toast usually and theres was by far the most delicious food thats ever entered my mouth. I am literally drooling while writing this.\nThe chicken and waffles were unreal and standout A++++. \nI love the \"flinstones pushup-pop\" drink so creative and clever.\nEven the deviled eggs were the best I've personally ever had. They do everything right even when it comes to the music. It was super fun and such a great experience! Ignore any review thats not 4 stars because they must be delusional.",
+        "c1e05113-d367-4f2b-8910-c163b144c2c9": "I only gave them 3stars this time but I look forward to improving their score after future visits.",
+        "cc384023-0468-4b06-94f2-903bdd98fb11": "This place is top notch, with phenomenal service and such fantastic ambiance- how can you go elsewhere? All of the food looked and smelled amazing. ",
+        "003f3cdf-6934-46c0-be90-c466ecf7b5e8": "Super tasty and enormous portions. ",
+        "0daba217-4083-4d8e-ba00-da8497310fb9": "Oh my gosh, it was so good!",
+        "bebc6496-d1a1-408e-bd01-37c9db67d598": "This particular location is not quite as friendly as the one I go to near the office, but whatever.  I can still walk out with all of my snacking requirements.",
+        "071b5f8f-f57a-42b9-8c86-e797cc864ccf": "Also no judgement for eating all the brownie sundae alone :) lol"
+    },
+    "relevant_docs": {
+        "25246855-574a-4dcc-b727-34975cdd2dc4": [
+            "37be3c44-96ee-4a76-b054-00461b69a63e"
+        ],
+        "ea6d6b25-3ceb-4465-b7b8-b7a8cb75c160": [
+            "716413ae-6eb9-4ff6-8737-959217e4ccbc"
+        ],
+        "62565394-e147-4210-8bcb-698c1a8aadf9": [
+            "2c67c79e-0733-405a-b0f4-a4a3630a6047"
+        ],
+        "e75c3057-394b-49d6-83a7-9d21610dea8b": [
+            "9fbd5ea5-ada6-4888-a4e8-3ca29b2beab8"
+        ],
+        "dccff7cc-f232-4447-b2e7-c09846f66144": [
+            "6330dafa-19f0-45c9-9810-9297fef2a162"
+        ],
+        "b70527f8-e839-48c3-afd1-1c0b45099090": [
+            "a8248e27-4017-4258-80f3-788eb11ed4f8"
+        ],
+        "b1b9d99d-eaee-4acf-8b1c-cf72bf8e70a0": [
+            "553a4a2e-22ea-4b5b-a8d0-82a6b09079e3"
+        ],
+        "d77319f0-10cc-47f7-926a-5809f20af712": [
+            "c1e05113-d367-4f2b-8910-c163b144c2c9"
+        ],
+        "c16b5363-c4ff-4372-986c-39d978d34988": [
+            "cc384023-0468-4b06-94f2-903bdd98fb11"
+        ],
+        "3b27540b-9033-4c6e-981d-ecb39a487e17": [
+            "003f3cdf-6934-46c0-be90-c466ecf7b5e8"
+        ],
+        "db834a98-d502-42b7-87cc-75a26a5001f7": [
+            "0daba217-4083-4d8e-ba00-da8497310fb9"
+        ],
+        "23fa6737-95dd-47ec-b5fb-50ac7baa31e2": [
+            "bebc6496-d1a1-408e-bd01-37c9db67d598"
+        ],
+        "09c3c77a-a704-4c37-a7aa-e69d2ecae91e": [
+            "071b5f8f-f57a-42b9-8c86-e797cc864ccf"
+        ]
+    },
+    "mode": "text"
+}

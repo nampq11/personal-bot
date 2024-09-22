@@ -1,0 +1,11 @@
+**/.DS_Store
+
+**/*-checkpoint.ipynb
+**/*.pyc
+.vscode/
+
+.venv/
+**/031_rerun/
+**/Alibaba-NLP/
+**/yelp_dataset/
+**/data.json
