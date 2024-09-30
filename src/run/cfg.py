@@ -9,25 +9,29 @@ from src.run.utils import pprint_pydantic_model, substitute_punctuation
 
 response_curated_eval_dataset_fp = "data/031_rerun/response_curated_eval_dataset.json"
 response_synthetic_eval_dataset_fp = (
-    "/home/nampq/Desktop/projects/personal-bot/data/031_rerun/response_synthetic_eval_dataset.json"
+    "/home/nampq/Desktop/projects/personal-bot/notebooks/data/01_create_retrieval_dataset/retrieval_synthetic_eval_dataset.json"
 )
 retrieval_synthetic_eval_dataset_fp = (
-    "/home/nampq/Desktop/projects/personal-bot/data/031_rerun/retrieval_synthetic_eval_dataset.json"
+    "/home/nampq/Desktop/projects/personal-bot/notebooks/data/01_create_retrieval_dataset/retrieval_synthetic_eval_dataset.json"
 )
-storage_context_persist_dp = "/home/nampq/Desktop/projects/personal-bot/data/031_rerun/storage_context"
-db_collection = "review_rec_bot_031_rerun"
+# storage_context_persist_dp = "/home/nampq/Desktop/projects/personal-bot/data/031_rerun/storage_context"
+storage_context_persist_dp = "/home/nampq/Desktop/projects/personal-bot/data/001_rerun/storage_context"
+# db_collection = "review_rec_bot_031_rerun"
+db_collection = "healthcare_bot_032_rerun"
 db_collection_fp = "/home/nampq/Desktop/projects/personal-bot/data/031_rerun/chroma_db"
 
 class LLMConfig(BaseModel):
     llm_provider: Literal["openai", "togetherai", "ollama", "gemini"] = "gemini"
     llm_model_name: str = "models/gemini-1.5-flash"
-    embedding_provider: Literal["openai", "togetherai", "ollama", "huggingface"] = (
-        "huggingface"
+    # llm_model_name: str = "qwen2.5:7b"
+    # llm_model_name: str = "llama3.1:8b"
+    embedding_provider: Literal["openai", "togetherai", "ollama", "huggingface", "optimum"] = (
+        "optimum"
     )
-    embedding_model_name: str = "/home/nampq/Desktop/projects/personal-bot/data/Alibaba-NLP/gte-multilingual-base"
+    embedding_model_name: str = "/home/nampq/Desktop/projects/personal-bot/data/BookingCare/multilingual-e5-base-v2-onnx-quantized"
     embedding_model_dim: int = None
 
-    ollama__host: str = "localhost"
+    ollama__host: str = "https://5cb2-34-74-225-158.ngrok-free.app/"
     ollama__port: int = 11434
 
 
@@ -43,7 +47,7 @@ class RetrievalConfig(BaseModel):
 
 class EvalConfig(BaseModel):
     retrieval_num_sample_nodes: int = 30
-    retrieval_eval_llm_model: str = "models/gemini-1.5-flash"
+    retrieval_eval_llm_model: str = "llama3.1:8b"
     retrieval_eval_llm_model_config: dict = {"temperature": 0.3}
     retrieval_eval_num_questions_per_chunk: int = 1
     retrieval_metrics: List[str] = [
@@ -56,31 +60,52 @@ class EvalConfig(BaseModel):
     ]
     retrieval_eval_dataset_fp: str = retrieval_synthetic_eval_dataset_fp
 
+#     response_question_gen_query: str = """
+# you are a helpul assistant.
+
+# your task is to generate {num_questions_per_chunk} questions based on only given context, not prior information.
+# The questions are aim to find healthcare service to go to, for example: doctor, clinic, clinicPlace, disease, ...
+
+# <EXAMPLE>
+# Input context: Để điều trị nấm da đầu, bạn có thể áp dụng các phương pháp sau:\n1. Sử dụng thuốc điều trị theo đường uống: Thông thường, các trường hợp nấm da đầu cần phải sử dụng thuốc uống kháng nấm để điều trị. Các loại thuốc thường được sử dụng bao gồm Griseofulvin, Terbinafine, Itraconazole, Fluconazole. Thời gian sử dụng thuốc tùy thuộc vào từng loại và được chỉ định bởi bác sĩ.\n2. Đảm bảo vệ sinh da đầu: Vệ sinh da đầu thường xuyên và sạch sẽ là rất quan trọng trong việc điều trị nấm da đầu. Hãy gội đầu hàng ngày bằng shampoo chuyên dụng chống nấm và sử dụng lược, khăn tay riêng để tránh lây nhiễm.\n3. Tránh để tóc ướt, ẩm khi đi ngủ: Nấm da đầu thích môi trường ẩm ướt, do đó hãy đảm bảo tóc khô ráo trước khi đi ngủ để không tạo điều kiện cho nấm phát triển.
+# Output questions: Điều trị nấm da đầu như thế nào?
+
+# Some example of good generated questions: 
+# - bệnh viện chợ rẫy ở đâu?
+# - Rối loạn thần kinh thực vật có nguy hiểm không?
+# </EXAMPLE>
+
+# IMPORTANT RULES:
+# - The generated questions must be specific about the categories of businesses it's  looking for. A good generated question would have its typical answer being: Here are some options for you: Place A because..., Place B because...
+# - Restrict the generated questions to the context information provided
+# - Pay attention to the sentiment of the context review. If the review is bad then never return a question that ask for a good experience.
+# - Do not mention anything about the context in the generated queries
+# - The generated questions must be complete on its own. Do not assume the person receiving the question know anything about the person asking the question. for example never use "in my area" or "near me
+# ."""
     response_question_gen_query: str = """
-you are a helpul assistant.
+bạn là một trợ lý hữu ích.
 
-your task is to generate {num_questions_per_chunk} questions based on only given context, not prior information.
-The questions are aim to find businesses/locations to go to, for example: restaurants, shopping mall, parkings lots, ...
+nhiệm vụ của bạn là tạo ra {num_questions_per_chunk} câu hỏi chỉ dựa trên ngữ cảnh nhất định chứ không phải thông tin trước đó.
+Các câu hỏi nhằm mục đích tìm kiếm thông tin về dịch vụ y tế, ví dụ: bệnh, bác sĩ, dịch vụ y tế, ...
+<VÍ DỤ>
+input context: Để giảm thời gian chờ đợi và nhận được hướng dẫn đi khám tại Bệnh viện Chợ Rẫy, người bệnh vui lòng:\nChọn chuyên khoa phù hợp cần đi khám\nChọn thời gian đặt khám\nĐặt hẹn online trước khi đến khám. \nGIỚI THIỆU\nNội Phổi, Bệnh viện Chợ Rẫy\nĐịa chỉ:\nKhu A Bệnh viện Chợ Rẫy - số 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Hồ Chí Minh\nThời gian làm việc:\nBệnh viện làm việc, tiếp nhận khám bệnh cho bệnh nhân ngoại trú từ thứ 2 đến thứ 7 hàng tuần:\nThứ 2 đến thứ 6: từ 7h – 16h\nThứ 7: từ 7h – 11h\nLưu ý thông tin đặt lịch: \nVui lòng kiểm tra kĩ thông tin cá nhân (họ tên, giới tính, năm sinh, địa chỉ, BHYT) trước khi xác nhận đặt lịch khám để tránh sai sót và tiết kiệm thời gian (\nBệnh viện không chấp nhận với lịch sai thông tin) \nTrường hợp đặt sai thông tin, vui lòng đặt lại bằng số điện thoại khác.
+ouput questions: địa chỉ của bệnh viện Chợ Rẫy là gì?
 
-<EXAMPLE>
-Input context: Biz_name: Clara's Kitchen. What a great addition to the Funk Zone! Grab some tastings, life is good. Right next door to the Santa Barbara Wine Collective, in fact it actually shares the same tables. We had fabulous savory croissant.
-Output questions: What are some recommended restaurants in Funk Zone?
+Một số ví dụ về các câu hỏi được tạo tốt: 
+- Quy trình khám và làm hồ sơ sinh tại Bệnh viện Bạch Mai diễn ra như thế nào?
+- Điều trị nấm da đầu như thế nào?
+</VÍ DỤ>
 
-Some example of good generated questions: 
-- What are some reliable shipping or delivery services in  Affton?
-- What are some clothing stores with good quality customer service or support?
-</EXAMPLE>
-
-IMPORTANT RULES:
-- The generated questions must be specific about the categories of businesses it's  looking for. A good generated question would have its typical answer being: Here are some options for you: Place A because..., Place B because...
-- Restrict the generated questions to the context information provided
-- Pay attention to the sentiment of the context review. If the review is bad then never return a question that ask for a good experience.
-- Do not mention anything about the context in the generated queries
-- The generated questions must be complete on its own. Do not assume the person receiving the question know anything about the person asking the question. for example never use "in my area" or "near me
-."""
+QUY TẮC QUAN TRỌNG:
+- Các câu hỏi được tạo ra phải cụ thể về cụ thể  về một dịch vụ y tế đang tìm kiếm. Một câu hỏi hay sẽ có câu trả lời điển hình là: Dưới đây là thông tin về yêu cầu của bạn: Thông tin về bác sĩ A,..., Thông tin về bệnh viện A
+- Hạn chế các câu hỏi được tạo ra đối với thông tin ngữ cảnh được cung cấp
+- Chú ý đến cảm xúc khi xem xét bối cảnh. 
+- Không đề cập bất cứ điều gì về bối cảnh trong các truy vấn được tạo
+- Các câu hỏi được tạo ra phải tự hoàn chỉnh. Đừng cho rằng người nhận câu hỏi biết bất cứ điều gì về người đặt câu hỏi. ví dụ: không bao giờ sử dụng "trong khu vực của tôi" hoặc "gần tôi"
+"""
     response_synthetic_eval_dataset_fp: str = response_synthetic_eval_dataset_fp
     response_curated_eval_dataset_fp: str = response_curated_eval_dataset_fp
-    response_eval_llm_model: str = "gpt-4o-mini"
+    response_eval_llm_model: str = "llama3.1:8b"
     response_eval_llm_model_config: dict = {"temperature": 0.3}
     response_synthetic_num_questions_per_chunk: int = 1
     response_num_sample_documents: int = 30
@@ -173,7 +198,9 @@ class RunConfig(BaseModel):
             ollama_host = self.llm_cfg.ollama__host
             ollama_port = self.llm_cfg.ollama__port
 
-            base_url = f"http://{ollama_host}:{ollama_port}"
+            # base_url = f"http://{ollama_host}:{ollama_port}"
+            base_url = f"{ollama_host}"
+            print(base_url)
             llm = Ollama(
                 base_url=base_url,
                 model=llm_model_name,
@@ -208,7 +235,8 @@ class RunConfig(BaseModel):
             embed_model = HuggingFaceEmbedding(
                 model_name=embedding_model_name,
                 embed_batch_size=4,
-                trust_remote_code=True
+                trust_remote_code=True,
+                device="cpu",
             )
         elif embedding_provider == "openai":
             from llama_index.embeddings.openai import OpenAIEmbedding
@@ -219,6 +247,12 @@ class RunConfig(BaseModel):
                 model_name=embedding_model_name,
                 base_url=base_url,
                 ollama_additional_kwargs={'mirostat': 0},
+            )
+        elif embedding_provider == "optimum":
+            from llama_index.embeddings.huggingface_optimum import OptimumEmbedding
+            embed_model = OptimumEmbedding(
+                folder_name=embedding_model_name,
+                device="cpu",
             )
         self.llm_cfg.embedding_model_dim = len(
             embed_model.get_text_embedding("sample text")

@@ -1,18 +1,18 @@
 {
     "queries": {
-        "25246855-574a-4dcc-b727-34975cdd2dc4": "What are some other great places to visit in the Funk Zone?",
-        "ea6d6b25-3ceb-4465-b7b8-b7a8cb75c160": "What are some businesses known for having friendly staff?",
-        "62565394-e147-4210-8bcb-698c1a8aadf9": "What are some other tap rooms in Indianapolis that have a rotating selection of beers?",
-        "e75c3057-394b-49d6-83a7-9d21610dea8b": "What are some good places to get affordable dinner and lunch to-go?",
-        "dccff7cc-f232-4447-b2e7-c09846f66144": "What are some ice cream shops known for their delicious and unique flavors, friendly service, and generous sampling policy?",
-        "b70527f8-e839-48c3-afd1-1c0b45099090": "What are some other places that offer tastings and good food in Santa Barbara?",
-        "b1b9d99d-eaee-4acf-8b1c-cf72bf8e70a0": "What are some highly-rated brunch restaurants known for their creative and delicious food?",
-        "d77319f0-10cc-47f7-926a-5809f20af712": "What are some restaurants that offer excellent customer service and a good dining experience?",
-        "c16b5363-c4ff-4372-986c-39d978d34988": "What are some restaurants with excellent service and ambiance?",
-        "3b27540b-9033-4c6e-981d-ecb39a487e17": "What are some restaurants known for their large portions?",
-        "db834a98-d502-42b7-87cc-75a26a5001f7": "What are some places that serve delicious food?",
-        "23fa6737-95dd-47ec-b5fb-50ac7baa31e2": "What are some other places that offer snacks?",
-        "09c3c77a-a704-4c37-a7aa-e69d2ecae91e": "What are some places that offer brownie sundaes?"
+        "8014523b-5dbb-4167-9b5a-fad476b471a7": "What are some other great places to visit in the Funk Zone?",
+        "a1d45aff-4de4-41a4-8a29-93c12e63a217": "What are some businesses known for their friendly staff?",
+        "597c544f-d9aa-4b4a-82fb-8da41f7e8bbd": "What are some other taprooms in Indianapolis with a rotating selection of beers?",
+        "0c273350-44d1-4845-9640-af5a785c3e8f": "What are some good places to get affordable to-go dinners and lunches?",
+        "7316b7e7-cdc8-4997-99d6-c917c06e0e58": "What are some ice cream shops known for their delicious and unique flavors, especially pralines and cream?",
+        "ef6d0dbd-a9ff-45f0-9dee-95c05bfbe6c4": "What are some good places to get savory pastries in Santa Barbara?",
+        "b6ac0cf5-a51c-4d99-a682-d904b1edfe6b": "What are some brunch restaurants known for their creative and delicious food?",
+        "b7fa6a52-2bad-4f15-90c8-04995be1c045": "What are some restaurants that offer a good dining experience?",
+        "4971fddb-d7c1-4125-adcc-7e73527619b3": "What are some restaurants with excellent service and ambiance?",
+        "a30242ab-25f7-46a8-8354-11bdfc5d48f4": "What are some restaurants known for their large portions?",
+        "7b874594-0a6a-4d23-9846-19c1b145770c": "What are some places that serve delicious food?",
+        "9af8b01a-7b1c-4b09-b804-03997cf824cb": "What are some other snack shops or convenience stores in the area?",
+        "a9fd095d-1244-4422-8a7e-dd2145ba4fc7": "What are some places that offer brownie sundaes?"
     },
     "corpus": {
         "37be3c44-96ee-4a76-b054-00461b69a63e": "What a great addition to the Funk Zone!  ",
@@ -30,43 +30,43 @@
         "071b5f8f-f57a-42b9-8c86-e797cc864ccf": "Also no judgement for eating all the brownie sundae alone :) lol"
     },
     "relevant_docs": {
-        "25246855-574a-4dcc-b727-34975cdd2dc4": [
+        "8014523b-5dbb-4167-9b5a-fad476b471a7": [
             "37be3c44-96ee-4a76-b054-00461b69a63e"
         ],
-        "ea6d6b25-3ceb-4465-b7b8-b7a8cb75c160": [
+        "a1d45aff-4de4-41a4-8a29-93c12e63a217": [
             "716413ae-6eb9-4ff6-8737-959217e4ccbc"
         ],
-        "62565394-e147-4210-8bcb-698c1a8aadf9": [
+        "597c544f-d9aa-4b4a-82fb-8da41f7e8bbd": [
             "2c67c79e-0733-405a-b0f4-a4a3630a6047"
         ],
-        "e75c3057-394b-49d6-83a7-9d21610dea8b": [
+        "0c273350-44d1-4845-9640-af5a785c3e8f": [
             "9fbd5ea5-ada6-4888-a4e8-3ca29b2beab8"
         ],
-        "dccff7cc-f232-4447-b2e7-c09846f66144": [
+        "7316b7e7-cdc8-4997-99d6-c917c06e0e58": [
             "6330dafa-19f0-45c9-9810-9297fef2a162"
         ],
-        "b70527f8-e839-48c3-afd1-1c0b45099090": [
+        "ef6d0dbd-a9ff-45f0-9dee-95c05bfbe6c4": [
             "a8248e27-4017-4258-80f3-788eb11ed4f8"
         ],
-        "b1b9d99d-eaee-4acf-8b1c-cf72bf8e70a0": [
+        "b6ac0cf5-a51c-4d99-a682-d904b1edfe6b": [
             "553a4a2e-22ea-4b5b-a8d0-82a6b09079e3"
         ],
-        "d77319f0-10cc-47f7-926a-5809f20af712": [
+        "b7fa6a52-2bad-4f15-90c8-04995be1c045": [
             "c1e05113-d367-4f2b-8910-c163b144c2c9"
         ],
-        "c16b5363-c4ff-4372-986c-39d978d34988": [
+        "4971fddb-d7c1-4125-adcc-7e73527619b3": [
             "cc384023-0468-4b06-94f2-903bdd98fb11"
         ],
-        "3b27540b-9033-4c6e-981d-ecb39a487e17": [
+        "a30242ab-25f7-46a8-8354-11bdfc5d48f4": [
             "003f3cdf-6934-46c0-be90-c466ecf7b5e8"
         ],
-        "db834a98-d502-42b7-87cc-75a26a5001f7": [
+        "7b874594-0a6a-4d23-9846-19c1b145770c": [
             "0daba217-4083-4d8e-ba00-da8497310fb9"
         ],
-        "23fa6737-95dd-47ec-b5fb-50ac7baa31e2": [
+        "9af8b01a-7b1c-4b09-b804-03997cf824cb": [
             "bebc6496-d1a1-408e-bd01-37c9db67d598"
         ],
-        "09c3c77a-a704-4c37-a7aa-e69d2ecae91e": [
+        "a9fd095d-1244-4422-8a7e-dd2145ba4fc7": [
             "071b5f8f-f57a-42b9-8c86-e797cc864ccf"
         ]
     },

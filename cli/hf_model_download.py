@@ -21,7 +21,7 @@ def download_model(model_name):
                 local_dir=os.path.join(DATA_PATH, model_name)
             )
         else:
-            model = SentenceTransformer(model_name, trust_remote_code=True)
+            model = SentenceTransformer(model_name, trust_remote_code=True, device='cpu')
             model.save(os.path.join(DATA_PATH, model_name))
     except Exception as e:
         raise e

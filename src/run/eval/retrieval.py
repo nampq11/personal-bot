@@ -1,10 +1,12 @@
 import json
 import os
+import time
 from typing import List
 
 import mlflow
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 from llama_index.core.evaluation import (
     EmbeddingQAFinetuneDataset,
     RetrieverEvaluator,
@@ -15,6 +17,7 @@ from llama_index.core.indices.vector_store.retrievers.retriever import (
 )
 from llama_index.core.schema import TextNode
 from llama_index.llms.gemini import Gemini
+from llama_index.llms.ollama import Ollama
 from loguru import logger
 
 from src.run.cfg import RunConfig
@@ -25,6 +28,8 @@ class RetrievalEvaluator:
             len(nodes), cfg.eval_cfg.retrieval_num_sample_nodes
         )
         cfg.eval_cfg.retrieval_num_sample_nodes = retrieval_num_sample_nodes
+        print(os.path.exists(cfg.eval_cfg.retrieval_eval_dataset_fp))
+        print(cfg.eval_cfg.retrieval_eval_dataset_fp)
         if cfg.args.CREATE_RETRIEVAL_EVAL_DATASET or not os.path.exists(
             cfg.eval_cfg.retrieval_eval_dataset_fp
         ):
@@ -40,7 +45,7 @@ class RetrievalEvaluator:
                 )
                 np.random.seed(41)
                 retrieval_eval_nodes = np.random.choice(
-                    nodes, retrieval_num_sample_nodes
+                    nodes, len(nodes)
                 )
             else:
                 logger.info("Using all nodes for retrieval evaluation...")
@@ -53,28 +58,42 @@ Context information is below.
 {{context_str}}
 -------------------
 
-{cfg.eval_cfg.retrieval_question_gen_query}
+{cfg.eval_cfg.response_question_gen_query}
             """
 
             # use goood model to generate the eval dataset
+            # retrieval_eval_llm = Ollama(
+            #     base_url=cfg.llm_cfg.ollama__host,
+            #     model=cfg.llm_cfg.llm_model_name,
+            #     request_timeout=200,
+            # )
+
             retrieval_eval_llm = Gemini(
-                model=cfg.eval_cfg.retrieval_eval_llm_model,
-                **cfg.eval_cfg.retrieval_eval_llm_model_config,
+                model="models/gemini-1.5-flash",
+                temperature=0.3,
+                safety_settings={
+                    'HATE': 'BLOCK_NONE',
+                    'HARASSMENT': 'BLOCK_NONE',
+                    'SEXUAL' : 'BLOCK_NONE',
+                    'DANGEROUS' : 'BLOCK_NONE'
+                }
             )
 
             logger.info(f"Creating new synthetic retrieval dataset...")
-            retrieval_eval_dataset = generate_question_context_pairs(
-                retrieval_eval_nodes,
-                llm=retrieval_eval_llm,
-                num_questions_per_chunk = cfg.eval_cfg.retrieval_eval_num_questions_per_chunk,
-                qa_generate_prompt_tmpl=qa_generate_prompt_tmpl,
-            )
-            
-            logger.info(
-                f"Loading retrieval_eval_nodes from {cfg.eval_cfg.retrieval_eval_dataset_fp}..."
-            )
+            try:
+                retrieval_eval_dataset = generate_question_context_pairs(
+                    retrieval_eval_nodes,
+                    llm=retrieval_eval_llm,
+                    num_questions_per_chunk = cfg.eval_cfg.retrieval_eval_num_questions_per_chunk,
+                    qa_generate_prompt_tmpl=qa_generate_prompt_tmpl,
+                )
 
-            retrieval_eval_dataset.save_json(cfg.eval_cfg.retrieval_eval_dataset_fp)
+                retrieval_eval_dataset.save_json(cfg.eval_cfg.retrieval_eval_dataset_fp,)
+                logger.info(
+                    f"Loading retrieval_eval_nodes from {cfg.eval_cfg.retrieval_eval_dataset_fp}..."
+                )
+            except Exception as e:
+                logger.info(f"Error in generating synthetic dataset: {e}")
         else:
             logger.info(
                 f"Loading retrieval_eval_nodes from {cfg.eval_cfg.retrieval_eval_dataset_fp}..."

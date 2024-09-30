@@ -29,6 +29,11 @@ llama-index-retrievers-bm25 = "^0.3.0"
 llama-index-llms-gemini = "^0.3.5"
 flagembedding = {git = "https://github.com/FlagOpen/FlagEmbedding.git"}
 spacy = "^3.7.6"
+mysql-connector-python = "^9.0.0"
+optimum = {extras = ["exporters"], version = "^1.22.0"}
+llama-index-embeddings-huggingface-optimum = "^0.2.0"
+chainlit = "^1.2.0"
+llama-index-agent-openai = "^0.3.4"
 
 
 [tool.poetry.group.dev.dependencies]

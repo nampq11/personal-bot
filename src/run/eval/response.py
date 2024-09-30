@@ -22,6 +22,7 @@ from llama_index.core.llama_dataset import (
 from llama_index.core.llama_dataset.generator import RagDatasetGenerator
 from llama_index.core.schema import Document
 from llama_index.llms.gemini import Gemini
+from llama_index.llms.ollama import Ollama
 from loguru import logger
 from tqdm import tqdm
 
@@ -62,8 +63,10 @@ class ResponseEvaluator:
 
             from llama_index.llms.gemini import Gemini
 
-            response_eval_llm = Gemini(
+            response_eval_llm = Ollama(
+                base_url=cfg.llm_cfg.ollama__host,
                 model=cfg.llm_cfg.llm_model_name,
+                request_timeout=60,
                 temperature=0,
             )
 
