@@ -9,3 +9,11 @@
 **/Alibaba-NLP/
 **/yelp_dataset/
 **/data.json
+
+**/001_rerun/
+**/BookingCare/
+**/nampham1106/
+
+notebooks/data/
+
+.env

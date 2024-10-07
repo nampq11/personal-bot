@@ -34,6 +34,7 @@ optimum = {extras = ["exporters"], version = "^1.22.0"}
 llama-index-embeddings-huggingface-optimum = "^0.2.0"
 chainlit = "^1.2.0"
 llama-index-agent-openai = "^0.3.4"
+translators = "^5.9.3"
 
 
 [tool.poetry.group.dev.dependencies]
